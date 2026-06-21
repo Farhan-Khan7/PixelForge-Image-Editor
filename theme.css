@@ -1,0 +1,52 @@
+:root {
+  /* Colors */
+  --clr-primary: #4fdcff;
+  --clr-primary-light: #7be7ff;
+  --clr-primary-dark: #1ba8d4;
+
+  --clr-bg: #02153a;
+  --clr-bg-secondary: #041f52;
+  --clr-surface: #062963;
+  --clr-surface-light: #0a3479;
+
+  --clr-text: #eafcff;
+  --clr-text-muted: #9dc7d4;
+
+  --clr-border: rgba(79, 220, 255, 0.5);
+  --clr-border-strong: rgba(79, 220, 255, 0.8);
+
+  /* Shadows */
+  --shadow-sm: 0 0 8px rgba(79, 220, 255, 0.15);
+  --shadow-md: 0 0 20px rgba(79, 220, 255, 0.2);
+  --shadow-lg: 0 0 40px rgba(79, 220, 255, 0.3);
+
+  /* Border Radius */
+  --radius-sm: 0.75rem;      /* 12px */
+  --radius-md: 1.25rem;      /* 20px */
+  --radius-lg: 2rem;         /* 32px */
+  --radius-xl: 3rem;         /* 48px */
+
+  /* Spacing */
+  --space-xs: 0.5rem;        /* 8px */
+  --space-sm: 1rem;          /* 16px */
+  --space-md: 1.5rem;        /* 24px */
+  --space-lg: 2rem;          /* 32px */
+  --space-xl: 3rem;          /* 48px */
+  --space-2xl: 4rem;         /* 64px */
+
+  /* Layout */
+  --container-width: 1400px;
+  --sidebar-width: 420px;
+
+  /* Typography */
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 2rem;
+
+  /* Transition */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
