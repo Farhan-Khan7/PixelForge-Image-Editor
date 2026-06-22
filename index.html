@@ -1,17 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelForge</title>
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelForge</title>
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <body>
-    
-    
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="assets/dark-mode-logo.png" alt="" />
+        </div>
 
+        <div class="nav-links">
+          <div class="import-image">
+            <button id="upload-img" class="upload-btn">
+              <label for="input-img" id="upload-label">Choose Image</label>
+              <input type="file" id="input-img" hidden />
+            </button>
+          </div>
+          <button id="reset-editing">Reset</button>
+          <button id="download-img">Download</button>
+          <button id="edit-img">Edit</button>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="toggle"><i class="ri-sun-line"></i></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="workspace">
+        <div class="image-preview">
+          <i class="ri-image-ai-fill"></i>
+          <p>Click "Choose Image"</p>
+          <div class="show-img">
+            <img src="" alt="">
+          </div>
+        </div>
+        <div class="editor-controls">
+          <i class="ri-equalizer-line"></i>
+          <p>Editor Panel</p>
+          
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
