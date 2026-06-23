@@ -257,12 +257,128 @@ nav .nav-links {
     font-weight: lighter;
     font-size: var(--fs-lg);
     color: rgba(128, 128, 128, 0.314);
+    position: relative;
+    overflow: hidden;
 }
 
 .editor-controls i{
     font-size: 20vw;
-    color: rgba(128, 128, 128, 0.173);
+    color: rgba(128, 128, 128, 0.09);
     border-radius: var(--radius-sm);
     padding: var(--space-xs) var(--space-lg);
     /* border: .5px solid var(--clr-border-primary); */
+}
+
+.panels{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    justify-content: center;
+    /* align-items: center; */
+    /* background-color: var(--clr-bg-secondary); */
+    /* background-color: yellow; */
+    opacity: 1;   
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.control-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.control-header p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--clr-text);
+}
+
+.control-header .value {
+    font-size: 0.875rem;
+    color: var(--clr-text-muted);
+}
+
+/* Range Slider */
+
+.control input[type="range"] {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Track */
+
+.control input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(111, 234, 255, 0.6);
+}
+
+.control input[type="range"]::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(111, 234, 255, 0.6);
+}
+
+/* Thumb */
+
+.control input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    background: #6FEAFF;
+    border: 2px solid #B8F7FF;
+
+    margin-top: -8px;
+
+    box-shadow:
+        0 0 8px rgba(111, 234, 255, 0.5),
+        0 0 16px rgba(111, 234, 255, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.control input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    background: #6FEAFF;
+    border: 2px solid #B8F7FF;
+
+    box-shadow:
+        0 0 8px rgba(111, 234, 255, 0.5),
+        0 0 16px rgba(111, 234, 255, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.control input[type="range"]:hover::-webkit-slider-thumb {
+    transform: scale(1.1);
+}
+
+.control input[type="range"]:hover::-moz-range-thumb {
+    transform: scale(1.1);
 }
