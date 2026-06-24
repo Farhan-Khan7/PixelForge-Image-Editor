@@ -44,7 +44,6 @@ const Filters = {
 };
 
 
-
 function applyFilters() {
     previewImg.style.filter = `
         brightness(${Filters.brightness}%)
@@ -155,8 +154,6 @@ hueRotateControl.addEventListener("input", function () {
 // Reset All filters 
 
 
-
-
 function resetFilter() {
 Filters.brightness = defaultFilters.brightness;
 Filters.contrast = defaultFilters.contrast;
@@ -194,4 +191,28 @@ const resetFilters = document.querySelector("#reset-editing");
 resetFilters.addEventListener("click", function () {
     resetFilter()
     applyFilters()
+})
+
+
+// Adjust panel open code 
+
+const adjustImgBtn = document.querySelector("#adjust-img");
+const editPanel = document.querySelector(".editor-controls");
+const imgPreview = document.querySelector(".image-preview");
+
+let isOpen = true
+adjustImgBtn.addEventListener("click", function(){
+    if(isOpen){
+        editPanel.style.display = "flex"
+        editPanel.style.animation = "panelOpen 1.7s ease forwards";
+        imgPreview.style.animation = "previewOpen 2s ease forwards";
+        isOpen = false
+    }else{
+        editPanel.style.animation = "panelClose 1s ease forwards";
+        setTimeout(() =>{
+            imgPreview.style.animation = "previewClose .8s ease forwards";
+            editPanel.style.display = "none"
+        },1000)
+        isOpen = true
+    }
 })
