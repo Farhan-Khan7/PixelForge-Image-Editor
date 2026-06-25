@@ -174,7 +174,7 @@ function applyFilters() {
         brightness(${Filters.brightness}%)
         contrast(${Filters.contrast}%)
         saturate(${Filters.saturation}%)
-        grayscale(${defaultFilters.grayscale}%)
+        grayscale(${Filters.grayscale}%)
         sepia(${Filters.sepia}%)
         invert(${Filters.invert}%)
         blur(${Filters.blurimg}px)
@@ -365,17 +365,59 @@ filterBtn.addEventListener("click", function () {
 const presetButtons = document.querySelectorAll(".preset-btn");
 
 
-presetButtons.forEach(function(buttons){
-    
-    buttons.addEventListener("click",function(){
-        
+presetButtons.forEach(function (buttons) {
+
+    buttons.addEventListener("click", function () {
+
         let presetFilter = presetFilters[this.dataset.filter];
 
         console.log(presetFilter)
 
-        Object.assign(Filters , presetFilter)
+        Object.assign(Filters, presetFilter)
 
         updateSlider();
         applyFilters();
     })
+})
+
+// Downlaod button functionalty
+
+
+const downloadCanvas = document.querySelector("#download-canvas");
+const ctx = downloadCanvas.getContext("2d");
+const downloadImgBtn = document.querySelector("#download-img");
+
+
+
+downloadImgBtn.addEventListener("click", function () {
+    downloadCanvas.width = previewImg.naturalWidth;
+    downloadCanvas.height = previewImg.naturalHeight
+
+    ctx.filter = `
+        brightness(${Filters.brightness}%)
+        contrast(${Filters.contrast}%)
+        saturate(${Filters.saturation}%)
+        grayscale(${Filters.grayscale}%)
+        sepia(${Filters.sepia}%)
+        invert(${Filters.invert}%)
+        blur(${Filters.blurimg}px)
+        opacity(${Filters.opacity}%)
+        hue-rotate(${Filters.hueRotate}deg)`
+
+    ctx.drawImage(
+        previewImg,
+        0,
+        0,
+        downloadCanvas.width,
+        downloadCanvas.height
+    );
+
+
+    const link = document.createElement("a")
+
+    link.href = downloadCanvas.toDataURL("image/png")
+
+    link.download = "PixelForge.png";
+    
+    link.click()
 })

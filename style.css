@@ -454,3 +454,13 @@ nav .nav-links {
     cursor: pointer;
     color: var(--clr-text);
 }
+
+
+
+/* For downlodad Images */
+
+
+#download-canvas{
+    visibility: hidden;
+    position: absolute;
+}
