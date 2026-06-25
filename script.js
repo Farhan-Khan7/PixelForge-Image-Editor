@@ -196,23 +196,42 @@ resetFilters.addEventListener("click", function () {
 
 // Adjust panel open code 
 
+const filtersPanel = document.querySelector(".filters");
+const adjustPanel = document.querySelector(".panels");
 const adjustImgBtn = document.querySelector("#adjust-img");
+const filterBtn = document.querySelector("#filters");
 const editPanel = document.querySelector(".editor-controls");
 const imgPreview = document.querySelector(".image-preview");
 
-let isOpen = true
-adjustImgBtn.addEventListener("click", function(){
-    if(isOpen){
-        editPanel.style.display = "flex"
-        editPanel.style.animation = "panelOpen 1.7s ease forwards";
-        imgPreview.style.animation = "previewOpen 2s ease forwards";
-        isOpen = false
-    }else{
-        editPanel.style.animation = "panelClose 1s ease forwards";
-        setTimeout(() =>{
-            imgPreview.style.animation = "previewClose .8s ease forwards";
-            editPanel.style.display = "none"
-        },1000)
-        isOpen = true
+
+let activePanel = null;
+adjustImgBtn.addEventListener("click", function () {
+    
+    if (activePanel === "adjust") {
+        editPanel.style.display = "none";
+        imgPreview.style.right = "0";
+        activePanel = null;
+        return;
     }
-})
+    editPanel.style.display = "flex";
+    filtersPanel.style.display = "none";
+    imgPreview.style.right = "0";
+
+    activePanel = "adjust";
+});
+
+filterBtn.addEventListener("click", function () {
+
+    if (activePanel === "filter") {
+        filtersPanel.style.display = "none";
+        imgPreview.style.right = "0";
+        activePanel = null;
+        return;
+    }
+
+    filtersPanel.style.display = "flex";
+    editPanel.style.display = "none";
+    imgPreview.style.right = "250px";
+
+    activePanel = "filter";
+});

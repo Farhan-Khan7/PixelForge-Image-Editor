@@ -215,7 +215,7 @@ nav .nav-links {
     height: 90vh;
     /* background-color: #3870e0; */
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     gap: var(--space-sm);
     padding: var(--space-xs);
@@ -238,25 +238,6 @@ nav .nav-links {
     position: relative;
     text-align: center;
     overflow: hidden;
-}
-@keyframes previewOpen {
-    0%{
-        transform: translateX(27%);
-    }
-
-    100%{
-        transform: translateX(0);
-    }
-}
-
-@keyframes previewClose {
-    from{
-        transform: translateX(0);
-    }
-
-    to{
-        transform: translateX(70px);
-    }
 }
 
 
@@ -308,28 +289,7 @@ nav .nav-links {
     
 }
 
-@keyframes panelOpen {
-    0%{
-        opacity: 0;
-        transform: translateX(100%);
-    }
 
-    100%{
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes panelClose {
-    from{
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to{
-        opacity: 0;
-        transform: translateX(100%);
-    }
-}
 
 .editor-controls i{
     font-size: 20vw;
@@ -451,4 +411,46 @@ nav .nav-links {
 
 .control input[type="range"]:hover::-moz-range-thumb {
     transform: scale(1.1);
+}
+
+
+
+
+/* presets Filter */
+
+
+.filters{
+    position: absolute;
+    right: 8%;
+    width: 27%;
+    height: 88%;
+    padding: var(--space-lg);
+    display: none;
+    flex-wrap: wrap;
+    gap: 10%;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: var(--clr-bg-secondary);
+    border-radius: var(--radius-sm);
+    border: .5px solid var(--clr-border-primary);
+    opacity: 1;   
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.preset-btn {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: var(--fs-sm);
+    padding: var(--space-md) var(--space-lg);
+    border-top-left-radius: var(--radius-xs);
+    border-bottom-right-radius: var(--radius-xs);
+    background-color: transparent;
+    color: var(--clr-text);
+    border: .5px solid var(--clr-border-primary);
+    cursor: pointer;
+    color: var(--clr-text);
 }
