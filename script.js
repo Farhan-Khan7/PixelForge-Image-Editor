@@ -44,6 +44,131 @@ const Filters = {
 };
 
 
+const presetFilters = {
+
+    original: {
+        brightness: 100,
+        contrast: 100,
+        saturation: 100,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: 0
+    },
+
+    vintage: {
+        brightness: 105,
+        contrast: 90,
+        saturation: 80,
+        grayscale: 0,
+        sepia: 35,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: 10
+    },
+
+    warm: {
+        brightness: 108,
+        contrast: 105,
+        saturation: 120,
+        grayscale: 0,
+        sepia: 12,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: -10
+    },
+
+    cool: {
+        brightness: 98,
+        contrast: 105,
+        saturation: 110,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: 25
+    },
+
+    dramatic: {
+        brightness: 95,
+        contrast: 150,
+        saturation: 130,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: 0
+    },
+
+    noir: {
+        brightness: 100,
+        contrast: 180,
+        saturation: 0,
+        grayscale: 100,
+        sepia: 0,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: 0
+    },
+
+    faded: {
+        brightness: 110,
+        contrast: 75,
+        saturation: 70,
+        grayscale: 10,
+        sepia: 0,
+        invert: 0,
+        blurimg: 1,
+        opacity: 95,
+        hueRotate: 0
+    },
+
+    dreamy: {
+        brightness: 115,
+        contrast: 85,
+        saturation: 115,
+        grayscale: 0,
+        sepia: 8,
+        invert: 0,
+        blurimg: 2,
+        opacity: 95,
+        hueRotate: 5
+    },
+
+    cyberpunk: {
+        brightness: 110,
+        contrast: 145,
+        saturation: 180,
+        grayscale: 0,
+        sepia: 0,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: 45
+    },
+
+    cinematic: {
+        brightness: 95,
+        contrast: 135,
+        saturation: 110,
+        grayscale: 5,
+        sepia: 8,
+        invert: 0,
+        blurimg: 0,
+        opacity: 100,
+        hueRotate: -5
+    }
+
+};
+
+
 function applyFilters() {
     previewImg.style.filter = `
         brightness(${Filters.brightness}%)
@@ -56,6 +181,29 @@ function applyFilters() {
         opacity(${Filters.opacity}%)
         hue-rotate(${Filters.hueRotate}deg)
     `;
+}
+
+
+function updateSlider() {
+    brightnessControl.value = Filters.brightness
+    contrastControl.value = Filters.contrast
+    saturationControl.value = Filters.saturation
+    grayscaleControl.value = Filters.grayscale
+    sepiaControl.value = Filters.sepia
+    invertControl.value = Filters.invert
+    blurControl.value = Filters.blurimg
+    opacityControl.value = Filters.opacity
+    hueRotateControl.value = Filters.hueRotate
+
+    brightnessPercentage.textContent = `${Filters.brightness}%`;
+    contrastPercentage.textContent = `${Filters.contrast}%`;
+    saturationPercentage.textContent = `${Filters.saturation}%`;
+    grayscalePercentage.textContent = `${Filters.grayscale}%`;
+    sepiaPercentage.textContent = `${Filters.sepia}%`;
+    invertPercentage.textContent = `${Filters.invert}%`;
+    blurPercentage.textContent = `${Filters.blurimg}px`;
+    opacityPercentage.textContent = `${Filters.opacity}%`;
+    hueRotatePercentage.textContent = `${Filters.hueRotate}°`;
 }
 
 
@@ -155,41 +303,15 @@ hueRotateControl.addEventListener("input", function () {
 
 
 function resetFilter() {
-Filters.brightness = defaultFilters.brightness;
-Filters.contrast = defaultFilters.contrast;
-Filters.saturation = defaultFilters.saturation;
-Filters.grayscale = defaultFilters.grayscale;
-Filters.sepia = defaultFilters.sepia;
-Filters.invert = defaultFilters.invert;
-Filters.blurimg = defaultFilters.blurimg;
-Filters.opacity = defaultFilters.opacity;
-Filters.hueRotate = defaultFilters.hueRotate;
+    Object.assign(Filters, defaultFilters);
 
-    brightnessControl.value = Filters.brightness
-    contrastControl.value = Filters.contrast
-    saturationControl.value = Filters.saturation
-    grayscaleControl.value = Filters.grayscale
-    sepiaControl.value = Filters.sepia
-    invertControl.value = Filters.invert
-    blurControl.value = Filters.blurimg
-    opacityControl.value = Filters.opacity
-    hueRotateControl.value = Filters.hueRotate
-
-    brightnessPercentage.textContent = `${Filters.brightness}%`;
-    contrastPercentage.textContent = `${Filters.contrast}%`;
-    saturationPercentage.textContent = `${Filters.saturation}%`;
-    grayscalePercentage.textContent = `${Filters.grayscale}%`;
-    sepiaPercentage.textContent = `${Filters.sepia}%`;
-    invertPercentage.textContent = `${Filters.invert}%`;
-    blurPercentage.textContent = `${Filters.blurimg}px`;
-    opacityPercentage.textContent = `${Filters.opacity}%`;
-    hueRotatePercentage.textContent = `${Filters.hueRotate}°`;
 }
 
 const resetFilters = document.querySelector("#reset-editing");
 
 resetFilters.addEventListener("click", function () {
     resetFilter()
+    updateSlider()
     applyFilters()
 })
 
@@ -206,7 +328,7 @@ const imgPreview = document.querySelector(".image-preview");
 
 let activePanel = null;
 adjustImgBtn.addEventListener("click", function () {
-    
+
     if (activePanel === "adjust") {
         editPanel.style.display = "none";
         imgPreview.style.right = "0";
@@ -235,3 +357,25 @@ filterBtn.addEventListener("click", function () {
 
     activePanel = "filter";
 });
+
+
+
+// Preset Filter ke liye code 
+
+const presetButtons = document.querySelectorAll(".preset-btn");
+
+
+presetButtons.forEach(function(buttons){
+    
+    buttons.addEventListener("click",function(){
+        
+        let presetFilter = presetFilters[this.dataset.filter];
+
+        console.log(presetFilter)
+
+        Object.assign(Filters , presetFilter)
+
+        updateSlider();
+        applyFilters();
+    })
+})
