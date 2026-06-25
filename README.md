@@ -15,10 +15,9 @@ PixelForge is a lightweight image editing application that allows users to uploa
 
 ## 📸 Preview
 
-> **Live Demo:** *(Add your deployed link here)*
+> **Live Demo:** *(https://farhan-khan7.github.io/PixelForge-Image-Editor/)*
 
-> **Screenshots:** *(Add screenshots inside an `assets` folder and replace the links below)*
-
+>
 | Home | Editing |
 |------|---------|
 | ![Home](assets/Home.png) | ![Editor](assets/Editing.png) |
