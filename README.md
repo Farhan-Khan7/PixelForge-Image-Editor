@@ -21,7 +21,7 @@ PixelForge is a lightweight image editing application that allows users to uploa
 
 | Home | Editing |
 |------|---------|
-| ![Home](assets/screenshots/home.png) | ![Editor](assets/screenshots/editor.png) |
+| ![Home](assets/Home.png) | ![Editor](assets/Editing.png) |
 
 ---
 
@@ -284,7 +284,7 @@ assets/screenshots/presets.png
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/PixelForge.git
+git clone https://github.com/Farhan-Khan7/PixelForge-Image-Editor.git
 ```
 
 Open the project folder
@@ -319,8 +319,8 @@ Feel free to fork this repository and submit a pull request.
 
 Frontend Developer | JavaScript Learner
 
-- 💼 LinkedIn: https://linkedin.com/in/YOUR-LINK
-- 🐙 GitHub: https://github.com/YOUR-USERNAME
+- 💼 LinkedIn: https://www.linkedin.com/in/farhan-khan-b99737254/
+- 🐙 X: https://x.com/FarhanK43883
 
 ---
 
