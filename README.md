@@ -253,7 +253,7 @@ During this project I learned how to:
 > Replace with your screenshot.
 
 ```
-assets/screenshots/home.png
+assets/Home.png
 ```
 
 ---
@@ -263,7 +263,7 @@ assets/screenshots/home.png
 > Replace with your screenshot.
 
 ```
-assets/screenshots/editor.png
+assets/Editing.png
 ```
 
 ---
@@ -273,7 +273,7 @@ assets/screenshots/editor.png
 > Replace with your screenshot.
 
 ```
-assets/screenshots/presets.png
+assets/dark-mode-logo.png
 ```
 
 ---
